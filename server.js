@@ -16,7 +16,7 @@ app.get("/api/:date?", function (req, res) {
   const timestampRegex = /^(\d{0,13})$/;
 
   if (timestampRegex.test(date)) {
-    res.json({ unix: date, utc: new Date(Number(date)).toUTCString() });
+    res.json({ unix: Number(date), utc: new Date(Number(date)).toUTCString() });
     return;
   }
 
